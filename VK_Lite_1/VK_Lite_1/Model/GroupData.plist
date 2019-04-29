@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Item 0</key>
+	<dict>
+		<key>groupName</key>
+		<string>FIFA</string>
+		<key>groupTopic</key>
+		<string>Football</string>
+		<key>groupImageName</key>
+		<string>FIFA</string>
+	</dict>
+	<key>Item 1</key>
+	<dict>
+		<key>groupName</key>
+		<string>NBA</string>
+		<key>groupTopic</key>
+		<string>Basketball</string>
+		<key>groupImageName</key>
+		<string>NBA</string>
+	</dict>
+	<key>Item 2</key>
+	<dict>
+		<key>groupName</key>
+		<string>NHL</string>
+		<key>groupTopic</key>
+		<string>Hockey</string>
+		<key>groupImageName</key>
+		<string>NHL</string>
+	</dict>
+	<key>Item 3</key>
+	<dict>
+		<key>groupName</key>
+		<string>F1</string>
+		<key>groupTopic</key>
+		<string>Racing</string>
+		<key>groupImageName</key>
+		<string>F1</string>
+	</dict>
+	<key>Item 4</key>
+	<dict>
+		<key>groupName</key>
+		<string>Grand Slum</string>
+		<key>groupTopic</key>
+		<string>Tennis</string>
+		<key>groupImageName</key>
+		<string>Grand Slum</string>
+	</dict>
+	<key>Item 5</key>
+	<dict>
+		<key>groupName</key>
+		<string>MLB</string>
+		<key>groupTopic</key>
+		<string>Baseball</string>
+		<key>groupImageName</key>
+		<string>MLB</string>
+	</dict>
+	<key>Item 6</key>
+	<dict>
+		<key>groupName</key>
+		<string>Super Bowl</string>
+		<key>groupTopic</key>
+		<string>American Football</string>
+		<key>groupImageName</key>
+		<string>Super Bowl</string>
+	</dict>
+	<key>Item 7</key>
+	<dict>
+		<key>groupName</key>
+		<string>FIDE</string>
+		<key>groupTopic</key>
+		<string>Chess</string>
+		<key>groupImageName</key>
+		<string>FIDE</string>
+	</dict>
+	<key>Item 8</key>
+	<dict>
+		<key>groupName</key>
+		<string>IBU</string>
+		<key>groupTopic</key>
+		<string>Biathlon</string>
+		<key>groupImageName</key>
+		<string>IBU</string>
+	</dict>
+	<key>Item 9</key>
+	<dict>
+		<key>groupName</key>
+		<string>Big Lapot</string>
+		<key>groupTopic</key>
+		<string>Lapta</string>
+		<key>groupImageName</key>
+		<string>Big Lapot</string>
+	</dict>
+</dict>
+</plist>
