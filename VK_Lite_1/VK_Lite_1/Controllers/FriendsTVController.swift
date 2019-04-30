@@ -10,8 +10,6 @@ import UIKit
 
 class FriendsTVController: UITableViewController, UISearchBarDelegate {
 
-    
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     private var friends: [Friend] = [
@@ -30,18 +28,15 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sortedSections()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
     }
     
     private func sortedSections() {
@@ -60,7 +55,6 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
         
         firstLetterSectionTitle = [String](friendDictionary.keys)
         firstLetterSectionTitle = firstLetterSectionTitle.sorted(by: {$0 < $1})
-        
     }
 
     // MARK: - Table view data source
@@ -96,7 +90,6 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
             if let friendValues = friendDictionary[friendNameKey] {
                 cell.friendnameLabel.text = friendValues[indexPath.row].friendName
                 cell.friendphotoImage.image = UIImage(named: friendValues[indexPath.row].friendImageName)
-                
             }
         }
         return cell

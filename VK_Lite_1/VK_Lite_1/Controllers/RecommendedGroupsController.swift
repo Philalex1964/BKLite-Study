@@ -15,9 +15,9 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     
     var fetchResultController: NSFetchedResultsController<GroupMO>!
     
-    public var groups: [GroupMO] = [
-        
-    ]
+    public var groups: [GroupMO] = []
+    
+    var managedContext: NSManagedObjectContext!
     
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -27,6 +27,8 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
             title = groupName
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
