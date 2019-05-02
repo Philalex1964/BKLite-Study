@@ -17,7 +17,7 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     
     public var groups: [GroupMO] = []
     
-    var managedContext: NSManagedObjectContext!
+    var context: NSManagedObjectContext!
     
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -32,6 +32,10 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+        
+        insertGroupData()
 
         //MARK: - Fetch data from data store
         let fetchRequest: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
@@ -52,7 +56,27 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
                 print(error)
             }
         }
+    }
+    
+    //MARK: - Insert Data from group.plist
+    func insertGroupData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
         
+        let path = Bundle.main.path(forResource: "GroupData", ofType: "plist")!
+        let dataArray = NSArray(contentsOfFile: path)! //as! [[String: Any]]
+        
+        for dict in dataArray {
+            let entity = NSEntityDescription.entity(forEntityName: "Group", in: context)!
+            let group = GroupMO(entity: entity,
+                                insertInto: context)
+            let groupDict = dict as! [String: Any]
+            
+            group.groupName = groupDict["groupName"] as? String
+            group.groupTopic = groupDict["groupTopic"] as? String
+            group.groupImageName = groupDict["groupImageName"] as? String
+        }
+        try! context.save()
     }
 }
 
