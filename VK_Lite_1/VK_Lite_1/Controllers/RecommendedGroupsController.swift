@@ -32,10 +32,8 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
         
-//        insertGroupData()
+        insertGroupData()
 
         //MARK: - Fetch data from data store
         let fetchRequest: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
@@ -63,8 +61,18 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
+        let fetch: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
+                fetch.predicate = NSPredicate(format: "groupName != nil")
+        
+                let count = try! context.count(for: fetch)
+        
+                if count > 0 {
+                    // SampleData.plist data already in Core Data
+                    return
+                }
+        
         let path = Bundle.main.path(forResource: "GroupData", ofType: "plist")!
-        let dataArray = NSArray(contentsOfFile: path)! //as! [[String : Any]]
+        let dataArray = NSArray(contentsOfFile: path)! 
         
         for dict in dataArray {
             let entity = NSEntityDescription.entity(forEntityName: "Group", in: context)!

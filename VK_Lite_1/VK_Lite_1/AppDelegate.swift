@@ -15,55 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-            insertGroupData()
-        
-        
-//          let group = GroupMO(context: self.persistentContainer.viewContext)
-//              group.groupName = "F1"
-//              group.groupTopic = "Racing"
-//              group.groupImageName = "F1"
-//
-//                saveContext()
-        
-       
-//        var vc: RecommendedGroupsController!
-        
- //       vc.context = persistentContainer.viewContext
-        
         return true
-    }
-    
-    func insertGroupData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetch: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
-        fetch.predicate = NSPredicate(format: "groupName != nil")
-        
-        let count = try! context.count(for: fetch)
-        
-        if count > 0 {
-            // SampleData.plist data already in Core Data
-            return
-        }
-        
-        let path = Bundle.main.path(forResource: "GroupData", ofType: "plist")!
-        let dataArray = NSArray(contentsOfFile: path)! //as! [[String : Any]]
-        
-        for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Group", in: context)!
-            let group = GroupMO(entity: entity,
-                                insertInto: context)
-            let groupDict = dict as! [String : Any]
-            
-            group.groupName = groupDict["groupName"] as? String
-            group.groupTopic = groupDict["groupTopic"] as? String
-            group.groupImageName = groupDict["groupImageName"] as? String
-        }
-        try! context.save()
     }
     
     // MARK: - Core Data stack

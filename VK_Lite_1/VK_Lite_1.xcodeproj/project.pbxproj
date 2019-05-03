@@ -27,7 +27,6 @@
 		2C6519A22251542000D65F77 /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6519A12251542000D65F77 /* LoginScreenController.swift */; };
 		2C9808F6227659F600DF6A4D /* GroupData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C9808F5227659F600DF6A4D /* GroupData.plist */; };
 		2CA052D8226F6A6000FC48C6 /* GroupModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CA052D6226F6A6000FC48C6 /* GroupModel.xcdatamodeld */; };
-		2CFED9DD22624171003F29E8 /* Temporary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFED9DC22624171003F29E8 /* Temporary.storyboard */; };
 		2CFED9E12262866F003F29E8 /* AvatarPhotoImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		2C6519A12251542000D65F77 /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		2C9808F5227659F600DF6A4D /* GroupData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GroupData.plist; sourceTree = "<group>"; };
 		2CA052D7226F6A6000FC48C6 /* GroupModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroupModel.xcdatamodel; sourceTree = "<group>"; };
-		2CFED9DC22624171003F29E8 /* Temporary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Temporary.storyboard; sourceTree = "<group>"; };
 		2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +140,6 @@
 				2C65199122514BFB00D65F77 /* Main.storyboard */,
 				2C65199622514BFF00D65F77 /* LaunchScreen.storyboard */,
 				2C65199422514BFF00D65F77 /* Assets.xcassets */,
-				2CFED9DC22624171003F29E8 /* Temporary.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,7 +221,6 @@
 				2C9808F6227659F600DF6A4D /* GroupData.plist in Resources */,
 				2C65199822514BFF00D65F77 /* LaunchScreen.storyboard in Resources */,
 				2C65199522514BFF00D65F77 /* Assets.xcassets in Resources */,
-				2CFED9DD22624171003F29E8 /* Temporary.storyboard in Resources */,
 				2C65199322514BFB00D65F77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
