@@ -246,7 +246,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="87" id="hKa-G3-IPz" userLabel="GroupCell" customClass="GroupCell" customModule="VK_Lite_1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hKa-G3-IPz" id="gAE-0p-xu4">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hKa-G3-IPz" id="gAE-0p-xu4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -266,7 +266,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TLK-Ar-BhW" secondAttribute="bottom" constant="3" id="6bf-6N-D8e"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TLK-Ar-BhW" secondAttribute="bottom" priority="250" constant="3" id="6bf-6N-D8e"/>
                                                 <constraint firstItem="TLK-Ar-BhW" firstAttribute="top" secondItem="gAE-0p-xu4" secondAttribute="topMargin" constant="3" id="Ivj-Ra-gaO"/>
                                                 <constraint firstItem="UxK-fL-LCI" firstAttribute="leading" secondItem="gAE-0p-xu4" secondAttribute="leadingMargin" constant="16" id="UMM-Yj-f1a"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TLK-Ar-BhW" secondAttribute="trailing" constant="16" id="dm1-QG-LFz"/>

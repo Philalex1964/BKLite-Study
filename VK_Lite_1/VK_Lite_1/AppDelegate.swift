@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        insertGroupData()
+        
         return true
     }
     
@@ -32,6 +34,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    
+    //MARK: - Insert Data from group.plist
+    func insertGroupData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetch: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
+        fetch.predicate = NSPredicate(format: "groupName != nil")
+        
+        let count = try! context.count(for: fetch)
+        
+        if count > 0 {
+            // SampleData.plist data already in Core Data
+            return
+        }
+        
+        let path = Bundle.main.path(forResource: "GroupData", ofType: "plist")!
+        let dataArray = NSArray(contentsOfFile: path)!
+        
+        for dict in dataArray {
+            let entity = NSEntityDescription.entity(forEntityName: "Group", in: context)!
+            let group = GroupMO(entity: entity,
+                                insertInto: context)
+            let groupDict = dict as! [String : Any]
+            
+            group.groupName = groupDict["groupName"] as? String
+            group.groupTopic = groupDict["groupTopic"] as? String
+            group.groupImageName = groupDict["groupImageName"] as? String
+        }
+        try! context.save()
+    }
     
     // MARK: - Core Data Saving support
     

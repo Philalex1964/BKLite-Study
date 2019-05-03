@@ -19,6 +19,7 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     
     var context: NSManagedObjectContext!
     
+    
     @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -33,8 +34,6 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        insertGroupData()
-
         //MARK: - Fetch data from data store
         let fetchRequest: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "groupName", ascending: true)
@@ -55,37 +54,6 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
             }
         }
     }
-    
-    //MARK: - Insert Data from group.plist
-    func insertGroupData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetch: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
-                fetch.predicate = NSPredicate(format: "groupName != nil")
-        
-                let count = try! context.count(for: fetch)
-        
-                if count > 0 {
-                    // SampleData.plist data already in Core Data
-                    return
-                }
-        
-        let path = Bundle.main.path(forResource: "GroupData", ofType: "plist")!
-        let dataArray = NSArray(contentsOfFile: path)! 
-        
-        for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Group", in: context)!
-            let group = GroupMO(entity: entity,
-                                insertInto: context)
-            let groupDict = dict as! [String : Any]
-            
-            group.groupName = groupDict["groupName"] as? String
-            group.groupTopic = groupDict["groupTopic"] as? String
-            group.groupImageName = groupDict["groupImageName"] as? String
-        }
-        try! context.save()
-    }
 }
 
 extension RecommendedGroupsController: UITableViewDataSource {
@@ -101,8 +69,28 @@ extension RecommendedGroupsController: UITableViewDataSource {
         
         return cell        
     }
+    //MARK: - Deleting group from CoreData
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            let groupToDelete = self.fetchResultController.object(at:
+                indexPath)
+            context.delete(groupToDelete)
+            
+            groups.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            appDelegate.saveContext()
+        }
+    }
 }
 
 extension RecommendedGroupsController: UITableViewDelegate {
     
 }
+
