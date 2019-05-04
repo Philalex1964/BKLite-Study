@@ -444,7 +444,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Alexey" translatesAutoresizingMaskIntoConstraints="NO" id="dpv-g9-cQu">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpv-g9-cQu">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7An-B4-WHD" customClass="LikeControl" customModule="VK_Lite_1" customModuleProvider="target">
@@ -488,7 +488,7 @@
         <scene sceneID="av4-Hf-oEU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQ3-R9-1Sh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Friends" image="friends1" id="hiQ-TQ-2P4"/>
+                    <tabBarItem key="tabBarItem" title="My Friends" image="user_group_man_woman" id="hiQ-TQ-2P4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eZZ-8a-kQL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -507,7 +507,7 @@
         <scene sceneID="pzc-qe-ByB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbW-9g-YgQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Groups" image="group1" id="Vif-lZ-smz"/>
+                    <tabBarItem key="tabBarItem" title="My Groups" image="people-1" id="Vif-lZ-smz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6jj-US-0CP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -786,12 +786,12 @@
         <image name="background-1" width="690" height="1226"/>
         <image name="comment" width="32" height="32"/>
         <image name="eye" width="32" height="32"/>
-        <image name="friends1" width="32" height="32"/>
-        <image name="group1" width="32" height="32"/>
         <image name="heart" width="50" height="50"/>
-        <image name="news" width="32" height="32"/>
+        <image name="news" width="10" height="10"/>
+        <image name="people-1" width="30" height="30"/>
         <image name="serbia_image" width="604" height="604"/>
         <image name="share" width="32" height="32"/>
+        <image name="user_group_man_woman" width="30" height="30"/>
         <image name="vk-blue" width="80" height="80"/>
     </resources>
 </document>

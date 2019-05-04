@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsTVController: UITableViewController, UISearchBarDelegate {
+class FriendsTVController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -19,7 +19,8 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
         Friend(friendName: "Igor", friendGender: .male, groupMemberNumber: 4, friendImageName: "Igor", friendImage: UIImage(named: "Igor")),
         Friend(friendName: "Uliana", friendGender: .female, groupMemberNumber: 5, friendImageName: "Uliana", friendImage: UIImage(named: "Uliana"))
     ]
-    
+    var friendName = ""
+    var friendImage = UIImage()
     var firstLetterSectionTitle = [String]()
     var friendDictionary = [String : [Friend]]()
     
@@ -28,22 +29,22 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchFriends = friends
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        sortedSections()
+        
+        sortFriends()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    private func sortedSections() {
+    private func sortFriends() {
+        
         firstLetterSectionTitle = []
         friendDictionary = [:]
         
-        for friend in friends {
+        for friend in searchFriends {
             let friendNameKey = String(friend.friendName.prefix(1))
             if var friendValue = friendDictionary[friendNameKey] {
                 friendValue.append(friend)
@@ -56,15 +57,24 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
         firstLetterSectionTitle = [String](friendDictionary.keys)
         firstLetterSectionTitle = firstLetterSectionTitle.sorted(by: {$0 < $1})
     }
+    
+    // MARK: function for searchBar
+    private func filterFriends (with text: String) {
+        searchFriends = friends.filter{ friend in
+            return friend.friendName.lowercased().contains(text.lowercased())
+        }
+        sortFriends()
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if searching {
-            return 1
-        } else {
+//        if searching {
+//            return 1
+//        } else {
             return firstLetterSectionTitle.count
-        }
+//        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,9 +112,8 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if searching {
             return nil
-        } else {
-            return firstLetterSectionTitle[section]
         }
+            return firstLetterSectionTitle[section]
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -126,14 +135,36 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "Show Photo",
-        let photoVC = segue.destination as? PhotosOfFriendsCVController,
-        let indexPath = tableView.indexPathForSelectedRow {
-        let friendName = friends[indexPath.row].friendName
-        
-        photoVC.friendName = friendName
+        if segue.identifier == "Show Photo"{
+            let photoVC = segue.destination as! PhotosOfFriendsCVController
+            let indexPath = tableView.indexPathForSelectedRow
+            //var friendName = ""
+            //friendImage = friends[indexPath!.row].friendImage!
+            if searching {
+                friendName = searchFriends[indexPath!.row].friendName
+                friendImage = UIImage(named: searchFriends[indexPath!.row].friendImageName)!
+            } else {
+                let friendNameKey = firstLetterSectionTitle[indexPath!.section]
+                if let friendValues = friendDictionary[friendNameKey] {
+                    friendName = friendValues[indexPath!.row].friendName
+                    friendImage = UIImage(named: friendValues[indexPath!.row].friendImageName)!
+                }
+            }
+            photoVC.friendImage = friendImage
+            photoVC.friendName = friendName
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      if segue.identifier == "Show Photo",
+//        let photoVC = segue.destination as? PhotosOfFriendsCVController,
+//        let indexPath = tableView.indexPathForSelectedRow {
+//        let friendName = friends[indexPath.row].friendName
+//
+//        photoVC.friendName = friendName
+//        photoVC.friendImage = friends[indexPath.row].friendImage
+//        }
+//    }
     
     @objc private func keyboardWasHidden(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
@@ -145,21 +176,32 @@ class FriendsTVController: UITableViewController, UISearchBarDelegate {
         tableView.endEditing(true)
     }
     
+   
+    
+}
+
+extension FriendsTVController: UISearchBarDelegate {
     func searchBar (_ searchBar: UISearchBar, textDidChange searchText: String) {
-        tableView.tableHeaderView = searchBar
-        searchFriends = friends.filter({$0.friendName.prefix(searchText.count) == searchText})
-        searching = true
-        tableView.reloadData()
+        if searchText.isEmpty {
+            searchFriends = friends
+            sortFriends()
+            tableView.reloadData()
+            return
+        }
+        filterFriends(with: searchText)
+        //        searchFriends = friends.filter({$0.friendName.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        //        searching = true
+        //        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
+        searchFriends = friends
+        sortFriends()
         hideKeyboard()
         tableView.reloadData()
     }
     
 }
-
-
 
