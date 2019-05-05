@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C019E15227F84140032E0D6 /* FullPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E14227F84140032E0D6 /* FullPhotoController.swift */; };
+		2C019E17227F89D70032E0D6 /* FullPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */; };
+		2C019E1D22803F830032E0D6 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */; };
 		2C40BBCD2271FCB400575298 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40BBCC2271FCB400575298 /* NewsCell.swift */; };
 		2C40BBCF2271FCDC00575298 /* NewsTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40BBCE2271FCDC00575298 /* NewsTVController.swift */; };
 		2C47106D2267831E008CA428 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47106C2267831E008CA428 /* LikeControl.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C019E14227F84140032E0D6 /* FullPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoController.swift; sourceTree = "<group>"; };
+		2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoCell.swift; sourceTree = "<group>"; };
+		2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		2C40BBCC2271FCB400575298 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		2C40BBCE2271FCDC00575298 /* NewsTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVController.swift; sourceTree = "<group>"; };
 		2C47106C2267831E008CA428 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
@@ -67,6 +73,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C019E18227FA0010032E0D6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2C6519A12251542000D65F77 /* LoginScreenController.swift */,
+				2C6429F92259F15C00285078 /* MainTabbarController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2C019E19227FA02B0032E0D6 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				2C6429F322597D0D00285078 /* GroupsTVController.swift */,
+				2C5CDDB2225CF83D00B29267 /* RecommendedGroupsController.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		2C019E1A227FA0440032E0D6 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */,
+				2C6429F122597CE300285078 /* FriendsTVController.swift */,
+				2C6429F722597D7C00285078 /* PhotosOfFriendsCVController.swift */,
+				2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */,
+				2C019E14227F84140032E0D6 /* FullPhotoController.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		2C019E1B227FA0660032E0D6 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				2C40BBCE2271FCDC00575298 /* NewsTVController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		2C47106B226782CB008CA428 /* Custom View */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +134,7 @@
 				2C5CDDAD225CDDC900B29267 /* FriendCell.swift */,
 				2C40BBCC2271FCB400575298 /* NewsCell.swift */,
 				2C5CDDB4225D2FA600B29267 /* PhotoCell.swift */,
+				2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -148,14 +193,10 @@
 			isa = PBXGroup;
 			children = (
 				2C5CDDB1225CEBC300B29267 /* Cells */,
-				2C6519A12251542000D65F77 /* LoginScreenController.swift */,
-				2C6429F92259F15C00285078 /* MainTabbarController.swift */,
-				2C40BBCE2271FCDC00575298 /* NewsTVController.swift */,
-				2C6429F122597CE300285078 /* FriendsTVController.swift */,
-				2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */,
-				2C6429F322597D0D00285078 /* GroupsTVController.swift */,
-				2C5CDDB2225CF83D00B29267 /* RecommendedGroupsController.swift */,
-				2C6429F722597D7C00285078 /* PhotosOfFriendsCVController.swift */,
+				2C019E18227FA0010032E0D6 /* Login */,
+				2C019E1B227FA0660032E0D6 /* News */,
+				2C019E19227FA02B0032E0D6 /* Groups */,
+				2C019E1A227FA0440032E0D6 /* Friends */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4C836A2262A3CD00734C4E /* ShadowView.swift in Sources */,
+				2C019E15227F84140032E0D6 /* FullPhotoController.swift in Sources */,
 				2CA052D8226F6A6000FC48C6 /* GroupModel.xcdatamodeld in Sources */,
 				2C47106D2267831E008CA428 /* LikeControl.swift in Sources */,
 				2C5CDDB0225CEBBA00B29267 /* GroupCell.swift in Sources */,
@@ -243,11 +285,13 @@
 				2C40BBCF2271FCDC00575298 /* NewsTVController.swift in Sources */,
 				2C40BBCD2271FCB400575298 /* NewsCell.swift in Sources */,
 				2C6429F422597D0E00285078 /* GroupsTVController.swift in Sources */,
+				2C019E1D22803F830032E0D6 /* FullPhotoViewController.swift in Sources */,
 				2C5CDDAE225CDDCA00B29267 /* FriendCell.swift in Sources */,
 				2C5CDDB5225D2FA600B29267 /* PhotoCell.swift in Sources */,
 				2CFED9E12262866F003F29E8 /* AvatarPhotoImageViewController.swift in Sources */,
 				2C6519A22251542000D65F77 /* LoginScreenController.swift in Sources */,
 				2C6429F222597CE300285078 /* FriendsTVController.swift in Sources */,
+				2C019E17227F89D70032E0D6 /* FullPhotoCell.swift in Sources */,
 				2C6429FA2259F15C00285078 /* MainTabbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

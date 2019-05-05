@@ -219,7 +219,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Groups" id="HY8-3G-CZ8">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="VK7-6J-kry"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" id="VK7-6J-kry"/>
                         <barButtonItem key="rightBarButtonItem" title="Groups" id="Uay-6B-0Jj">
                             <connections>
                                 <segue destination="DFv-4c-BV5" kind="show" identifier="Show Recomende Groups" id="YZe-mq-TIy"/>
@@ -406,7 +406,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Friends" id="NvA-SU-RJa">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="gs7-2J-08G"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" id="gs7-2J-08G"/>
                         <barButtonItem key="rightBarButtonItem" title="Photo" id="gX5-1G-Zxk"/>
                     </navigationItem>
                     <connections>
@@ -416,6 +416,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTz-RN-z4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2184.057971014493" y="-989.0625"/>
+        </scene>
+        <!--Full Photo View Controller-->
+        <scene sceneID="FcJ-at-q3b">
+            <objects>
+                <viewController id="6n7-ju-dOw" customClass="FullPhotoViewController" customModule="VK_Lite_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WoG-qU-N1B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbe-rT-4ya">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Alexey" translatesAutoresizingMaskIntoConstraints="NO" id="By0-fA-DxB">
+                                        <rect key="frame" x="0.0" y="52" width="414" height="414"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="By0-fA-DxB" secondAttribute="height" multiplier="1:1" id="v7L-zV-b7Z"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="By0-fA-DxB" firstAttribute="top" secondItem="Gbe-rT-4ya" secondAttribute="topMargin" id="QiL-TF-d3P"/>
+                                    <constraint firstItem="By0-fA-DxB" firstAttribute="leading" secondItem="Gbe-rT-4ya" secondAttribute="leading" id="a97-Gj-Pk7"/>
+                                    <constraint firstAttribute="trailing" secondItem="By0-fA-DxB" secondAttribute="trailing" id="vXB-Gs-M3h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gbe-rT-4ya" firstAttribute="leading" secondItem="CdE-wU-M3K" secondAttribute="leading" id="FZv-RC-LRq"/>
+                            <constraint firstItem="CdE-wU-M3K" firstAttribute="trailing" secondItem="Gbe-rT-4ya" secondAttribute="trailing" id="GzS-M9-BLj"/>
+                            <constraint firstItem="CdE-wU-M3K" firstAttribute="bottom" secondItem="Gbe-rT-4ya" secondAttribute="bottom" id="HLU-YR-GSf"/>
+                            <constraint firstItem="Gbe-rT-4ya" firstAttribute="top" secondItem="WoG-qU-N1B" secondAttribute="top" id="vBX-kd-V3a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CdE-wU-M3K"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullPhotoImage" destination="By0-fA-DxB" id="EZK-TT-fWY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZV-z0-Yi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3091" y="-1640"/>
         </scene>
         <!--Photos Of FriendsCV Controller-->
         <scene sceneID="JA4-9y-WcA">
@@ -479,10 +523,73 @@
                             <outlet property="delegate" destination="FpE-P5-6uc" id="qjn-ol-F5M"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="fS0-Rz-U8Q">
+                        <barButtonItem key="rightBarButtonItem" title="Full Photo" id="mou-0H-z2s">
+                            <connections>
+                                <segue destination="6hh-OQ-Jxt" kind="show" id="FLO-wE-d78"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDj-yR-mKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3086.9565217391305" y="-989.0625"/>
+        </scene>
+        <!--Full Photo Controller-->
+        <scene sceneID="4d3-9I-rYp">
+            <objects>
+                <collectionViewController id="6hh-OQ-Jxt" customClass="FullPhotoController" customModule="VK_Lite_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cQa-HC-ow0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PHV-a9-WFz">
+                            <size key="itemSize" width="414" height="414"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="lQ4-NT-SXb">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </view>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullPhotoCell" id="KlD-VK-9qe" customClass="FullPhotoCell" customModule="VK_Lite_1" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-HB-Q5S">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ARv-HB-Q5S" secondAttribute="height" multiplier="1:1" id="cY4-Vb-cee"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ARv-HB-Q5S" firstAttribute="top" secondItem="KlD-VK-9qe" secondAttribute="top" id="SFn-Hu-EnB"/>
+                                    <constraint firstAttribute="bottom" secondItem="ARv-HB-Q5S" secondAttribute="bottom" id="hZQ-a6-dEE"/>
+                                    <constraint firstItem="ARv-HB-Q5S" firstAttribute="leading" secondItem="KlD-VK-9qe" secondAttribute="leading" id="nlW-Jt-h5s"/>
+                                    <constraint firstAttribute="trailing" secondItem="ARv-HB-Q5S" secondAttribute="trailing" id="vTg-0t-15m"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="fullPhotoImage" destination="ARv-HB-Q5S" id="6D9-jI-rAf"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="6hh-OQ-Jxt" id="cTn-2T-ctk"/>
+                            <outlet property="delegate" destination="6hh-OQ-Jxt" id="xjn-Hu-VHe"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PR6-3m-EQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3940.579710144928" y="-989.0625"/>
         </scene>
         <!--My Friends-->
         <scene sceneID="av4-Hf-oEU">
@@ -787,7 +894,7 @@
         <image name="comment" width="32" height="32"/>
         <image name="eye" width="32" height="32"/>
         <image name="heart" width="50" height="50"/>
-        <image name="news" width="10" height="10"/>
+        <image name="news" width="32" height="32"/>
         <image name="people-1" width="30" height="30"/>
         <image name="serbia_image" width="604" height="604"/>
         <image name="share" width="32" height="32"/>
