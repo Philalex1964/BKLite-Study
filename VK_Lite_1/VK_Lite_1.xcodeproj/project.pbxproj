@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C019E15227F84140032E0D6 /* FullPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E14227F84140032E0D6 /* FullPhotoController.swift */; };
 		2C019E17227F89D70032E0D6 /* FullPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */; };
 		2C019E1D22803F830032E0D6 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */; };
 		2C40BBCD2271FCB400575298 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40BBCC2271FCB400575298 /* NewsCell.swift */; };
@@ -34,7 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C019E14227F84140032E0D6 /* FullPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoController.swift; sourceTree = "<group>"; };
 		2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoCell.swift; sourceTree = "<group>"; };
 		2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		2C40BBCC2271FCB400575298 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				2C6429F122597CE300285078 /* FriendsTVController.swift */,
 				2C6429F722597D7C00285078 /* PhotosOfFriendsCVController.swift */,
 				2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */,
-				2C019E14227F84140032E0D6 /* FullPhotoController.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4C836A2262A3CD00734C4E /* ShadowView.swift in Sources */,
-				2C019E15227F84140032E0D6 /* FullPhotoController.swift in Sources */,
 				2CA052D8226F6A6000FC48C6 /* GroupModel.xcdatamodeld in Sources */,
 				2C47106D2267831E008CA428 /* LikeControl.swift in Sources */,
 				2C5CDDB0225CEBBA00B29267 /* GroupCell.swift in Sources */,

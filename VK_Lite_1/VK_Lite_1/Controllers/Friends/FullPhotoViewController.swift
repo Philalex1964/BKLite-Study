@@ -11,49 +11,54 @@ import UIKit
 class FullPhotoViewController: UIViewController {
     
     let fullPhotoImageNames = ["Alexey", "Anton", "Dmitry", "Igor", "Uliana"]
+    
     var currentImage = 0
     
-    
-    
-    
     @IBOutlet weak var fullPhotoImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture)
-//        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-//        self.view.addGestureRecognizer(swipeRight)
-//        
-//        var swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture)
-//        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-//        self.view.addGestureRecognizer(swipeLeft)
-//    }
-//    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-//        
-//        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-//            
-//            
-//            switch swipeGesture.direction {
-//            case UISwipeGestureRecognizer.Direction.left:
-//                if currentImage == fullPhotoImageNames.count - 1 {
-//                    currentImage = 0
-//                    
-//                }else{
-//                    currentImage += 1
-//                }
-//                fullPhotoImage.image = UIImage(named: fullPhotoImageNames[currentImage])
-//                
-//            case UISwipeGestureRecognizer.Direction.right:
-//                if currentImage == 0 {
-//                    currentImage = fullPhotoImageNames.count - 1
-//                }else{
-//                    currentImage -= 1
-//                }
-//                fullPhotoImage.image = UIImage(named: fullPhotoImageNames[currentImage])
-//            default:
-//                break
-//            }
-//        } 
+        
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
     }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.left:
+                if currentImage == fullPhotoImageNames.count - 1 {
+                    currentImage = 0
+                    
+                }else{
+                    currentImage += 1
+                }
+                fullPhotoImage.image = UIImage(named: fullPhotoImageNames[currentImage])
+                
+            case UISwipeGestureRecognizer.Direction.right:
+                if currentImage == 0 {
+                    currentImage = fullPhotoImageNames.count - 1
+                }else{
+                    currentImage -= 1
+                }
+                fullPhotoImage.image = UIImage(named: fullPhotoImageNames[currentImage])
+            default:
+                break
+            }
+        }
+    }
+
+    
+    
+    
     
 
     /*
@@ -67,3 +72,4 @@ class FullPhotoViewController: UIViewController {
     */
 
 }
+
