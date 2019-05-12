@@ -813,7 +813,7 @@
         <!--News-->
         <scene sceneID="RkJ-l1-iET">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NaF-kh-fDZ" customClass="CustomNavigationController" customModule="VK_Lite_1" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NaF-kh-fDZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="news" id="PkR-Yc-RsR"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

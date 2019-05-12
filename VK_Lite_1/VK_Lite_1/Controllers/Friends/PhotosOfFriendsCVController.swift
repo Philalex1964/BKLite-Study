@@ -18,18 +18,10 @@ class PhotosOfFriendsCVController: UICollectionViewController {
   
     var friends: [Friend] = []
     
-    //MARK:Animator
-    private let transitionAnimator = Animator()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = friendName
-    }
-
-    //MARK:
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
     }
     
     // MARK: - UICollectionViewDataSource
@@ -54,14 +46,3 @@ class PhotosOfFriendsCVController: UICollectionViewController {
     }
 }
 
-
-//MARK: Transition protocol
-extension PhotosOfFriendsCVController: UIViewControllerTransitioningDelegate {
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return transitionAnimator
-    }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return transitionAnimator
-    }
-}

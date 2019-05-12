@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class Animator: NSObject,UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
     var presenting = true
-    private let animationDuration: TimeInterval = 0.6
+    private let animationDuration: TimeInterval = 1
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDuration
     }
@@ -44,8 +44,6 @@ class Animator: NSObject,UIViewControllerAnimatedTransitioning, UIViewController
         
         UIView.animate(withDuration: duration,
                        delay: 0.0,
-                       usingSpringWithDamping: 0.49,
-                       initialSpringVelocity: 0.81,
                        options: [],
                        animations: {
                         if self.presenting {
@@ -86,7 +84,6 @@ class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning{
         let pi = CGFloat(Double.pi)
         
         let offScreenRotateIn = CGAffineTransform(rotationAngle: -pi/2)
-        //let offScreenRotateOut = CGAffineTransform(rotationAngle: pi/2)
         
         destination.view.transform = offScreenRotateIn
         
@@ -110,7 +107,6 @@ class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning{
                        initialSpringVelocity: 0.81,
                        options: [],
                        animations: {
-                        //sourse.view.transform = offScreenRotateOut
                         destination.view.transform = .identity},
                        completion: { finished in
                         transitionContext.completeTransition(finished)
@@ -133,10 +129,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning{
         // MARK: Rotate
         let pi = CGFloat(Double.pi)
         
-        //let offScreenRotateIn = CGAffineTransform(rotationAngle: -pi/2)
         let offScreenRotateOut = CGAffineTransform(rotationAngle: -pi/2)
-        
-        //source.view.transform = .identity //offScreenRotateOut
         
         destination.view.layer.anchorPoint = CGPoint(x: 0, y: 0)
         source.view.layer.anchorPoint = CGPoint(x: 0, y: 0)
@@ -156,7 +149,6 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning{
                        initialSpringVelocity: 0.81,
                        options: [],
                        animations: {
-                        //sourse.view.transform = offScreenRotateOut
                         source.view.transform = offScreenRotateOut },
                        completion: { finished in
                         if finished && !transitionContext.transitionWasCancelled {
