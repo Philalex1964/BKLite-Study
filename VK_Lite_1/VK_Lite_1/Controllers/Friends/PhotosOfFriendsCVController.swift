@@ -23,7 +23,6 @@ class PhotosOfFriendsCVController: UICollectionViewController {
         
         title = friendName
     }
-
     
     // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,3 +45,4 @@ class PhotosOfFriendsCVController: UICollectionViewController {
         print("The cell liked status set to: \(sender.isLiked)")
     }
 }
+
