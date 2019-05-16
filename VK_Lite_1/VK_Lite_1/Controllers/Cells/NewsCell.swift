@@ -12,8 +12,6 @@ class NewsCell: UITableViewCell {
     
     static let reuseId = "NewsCell"
 
-    
-  
     @IBOutlet weak var newsTextView: UITextView!
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
@@ -27,7 +25,6 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var centerIndicator: UIView!
     @IBOutlet weak var leftIndicator: UIView!
     @IBOutlet weak var rightIndicator: UIView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,11 +42,7 @@ class NewsCell: UITableViewCell {
         })
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-      
     }
-
 }

@@ -15,9 +15,10 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     
     var fetchResultController: NSFetchedResultsController<GroupMO>!
     
-    public var groups: [GroupMO] = [
-        
-    ]
+    public var groups: [GroupMO] = []
+    
+    var context: NSManagedObjectContext!
+    
     
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -28,9 +29,11 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //MARK: - Fetch data from data store
         let fetchRequest: NSFetchRequest<GroupMO> = GroupMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "groupName", ascending: true)
@@ -50,7 +53,6 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
                 print(error)
             }
         }
-        
     }
 }
 
@@ -67,8 +69,28 @@ extension RecommendedGroupsController: UITableViewDataSource {
         
         return cell        
     }
+    //MARK: - Deleting group from CoreData
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            let groupToDelete = self.fetchResultController.object(at:
+                indexPath)
+            context.delete(groupToDelete)
+            
+            groups.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            appDelegate.saveContext()
+        }
+    }
 }
 
 extension RecommendedGroupsController: UITableViewDelegate {
     
 }
+

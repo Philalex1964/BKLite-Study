@@ -12,14 +12,16 @@ class PhotosOfFriendsCVController: UICollectionViewController {
 
     public var friendName = ""
     
+    public var friendImageName = ""
+    
+    public var friendImage: UIImage?
   
+    var friends: [Friend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = friendName
-        
-        
     }
 
     
@@ -32,6 +34,7 @@ class PhotosOfFriendsCVController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else { fatalError()}
         cell.likeControl.addTarget(self, action: #selector(cellLikePressed(_:)), for: .valueChanged)
+        cell.photoImageView.image = friendImage
         
         return cell
     }

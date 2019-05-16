@@ -23,8 +23,6 @@ class LoginScreenController: UIViewController {
         scrollView.addGestureRecognizer(tapGR)
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -56,12 +54,7 @@ class LoginScreenController: UIViewController {
         } else {
             showLoginError()
         }
-        
     }
-//      @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
-//            return
-//      }
-        
     
     //MARK: - Private API
     @objc private func keyboardWasShown(notification: Notification) {
@@ -106,6 +99,5 @@ class LoginScreenController: UIViewController {
         loginAlert.addAction(action)
         
         present(loginAlert, animated: true)
-    }
-    
+    }    
 }
