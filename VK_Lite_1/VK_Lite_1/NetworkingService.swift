@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import Alamofire
 
 class NetworkingService {
+    
+    private let baseUrl = "https://api.openweathermap.org"
+    
     public func sendRequest(for city: String) {
         //let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(city)&units=metric&appId=8b32f5f2dc7dbd5254ac73d984baf306")
         
@@ -40,6 +44,33 @@ class NetworkingService {
         }
         
         task.resume()
+    }
+    
+    static let session: SessionManager = {
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 60
+        let session = SessionManager(configuration: config)
+        return session
+    }()
+    
+    public func sendAlamofireRequest(city: String) {
+        let path = "/data/2.5/forecast"
+        
+        let params: Parameters = [
+            "q": city,
+            "units": "metric",
+            "appId": "8b32f5f2dc7dbd5254ac73d984baf306"
+        ]
+        
+//        let session = SessionManager()
+        NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON {
+            response in
+            guard let json = response.value else { return }
+            
+            print(json)
+        }
+        
+        print("end")
     }
     
 }

@@ -21,7 +21,7 @@ class LoginScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkingService.sendRequest(for: "Санкт-Петербург")
+        networkingService.sendAlamofireRequest(city: "Санкт-Петербург")
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGR)
