@@ -15,9 +15,13 @@ class LoginScreenController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    private let networkingService = NetworkingService()
+    
     //MARK: - Lifecycle Contrllrs
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkingService.sendRequest(for: "Moscow")
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGR)

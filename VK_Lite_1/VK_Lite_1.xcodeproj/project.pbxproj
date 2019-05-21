@@ -190,7 +190,7 @@
 		2C65198C22514BFB00D65F77 /* VK_Lite_1 */ = {
 			isa = PBXGroup;
 			children = (
-				2C74DD2A22943B0B00EBBD20 /* New Group */,
+				2C74DD2A22943B0B00EBBD20 /* Networking */,
 				2C65198D22514BFB00D65F77 /* AppDelegate.swift */,
 				2C06A78F228D80EC00816907 /* Settings */,
 				2C06A78C228D7C4900816907 /* Animation */,
@@ -202,12 +202,12 @@
 			path = VK_Lite_1;
 			sourceTree = "<group>";
 		};
-		2C74DD2A22943B0B00EBBD20 /* New Group */ = {
+		2C74DD2A22943B0B00EBBD20 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				2C74DD2822943AE600EBBD20 /* NetworkingService.swift */,
 			);
-			path = "New Group";
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		2C94F2F6225BBF6500A261B0 /* View */ = {
