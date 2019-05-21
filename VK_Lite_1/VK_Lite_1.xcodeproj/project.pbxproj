@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		076E30F919E293FD1876CC67 /* Pods_VK_Lite_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B15A28A77B1F58A9DBCE9EE /* Pods_VK_Lite_1.framework */; };
 		2C019E17227F89D70032E0D6 /* FullPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */; };
 		2C019E1D22803F830032E0D6 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */; };
 		2C06A78E228D80E300816907 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06A78D228D80E300816907 /* Account.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FAD081AAFA42F7EDCE9ED56 /* Pods-VK_Lite_1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_Lite_1.release.xcconfig"; path = "Target Support Files/Pods-VK_Lite_1/Pods-VK_Lite_1.release.xcconfig"; sourceTree = "<group>"; };
 		2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoCell.swift; sourceTree = "<group>"; };
 		2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		2C06A78D228D80E300816907 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 		2C9808F5227659F600DF6A4D /* GroupData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GroupData.plist; sourceTree = "<group>"; };
 		2CA052D7226F6A6000FC48C6 /* GroupModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroupModel.xcdatamodel; sourceTree = "<group>"; };
 		2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoImageViewController.swift; sourceTree = "<group>"; };
+		3322EF9626458E01CF88DF5D /* Pods-VK_Lite_1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_Lite_1.debug.xcconfig"; path = "Target Support Files/Pods-VK_Lite_1/Pods-VK_Lite_1.debug.xcconfig"; sourceTree = "<group>"; };
+		3B15A28A77B1F58A9DBCE9EE /* Pods_VK_Lite_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_Lite_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076E30F919E293FD1876CC67 /* Pods_VK_Lite_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +181,8 @@
 			children = (
 				2C65198C22514BFB00D65F77 /* VK_Lite_1 */,
 				2C65198B22514BFA00D65F77 /* Products */,
+				5E1D31692DE91200B59320B1 /* Pods */,
+				DA3F8F4EA6824EFED49EE123 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +241,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		5E1D31692DE91200B59320B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3322EF9626458E01CF88DF5D /* Pods-VK_Lite_1.debug.xcconfig */,
+				1FAD081AAFA42F7EDCE9ED56 /* Pods-VK_Lite_1.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA3F8F4EA6824EFED49EE123 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B15A28A77B1F58A9DBCE9EE /* Pods_VK_Lite_1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C65199C22514BFF00D65F77 /* Build configuration list for PBXNativeTarget "VK_Lite_1" */;
 			buildPhases = (
+				72DA665F2635610EDC634FA2 /* [CP] Check Pods Manifest.lock */,
 				2C65198622514BFA00D65F77 /* Sources */,
 				2C65198722514BFA00D65F77 /* Frameworks */,
 				2C65198822514BFA00D65F77 /* Resources */,
+				57120C19B7CEA608F6693B3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,6 +328,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57120C19B7CEA608F6693B3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK_Lite_1/Pods-VK_Lite_1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VK_Lite_1/Pods-VK_Lite_1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72DA665F2635610EDC634FA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VK_Lite_1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C65198622514BFA00D65F77 /* Sources */ = {
@@ -473,6 +547,7 @@
 		};
 		2C65199D22514BFF00D65F77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3322EF9626458E01CF88DF5D /* Pods-VK_Lite_1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +567,7 @@
 		};
 		2C65199E22514BFF00D65F77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FAD081AAFA42F7EDCE9ED56 /* Pods-VK_Lite_1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
