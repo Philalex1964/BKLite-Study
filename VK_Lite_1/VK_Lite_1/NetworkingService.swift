@@ -33,10 +33,10 @@ class NetworkingService {
         
         let session = URLSession(configuration: configuration)
         
-        let task = session.dataTask(with: request) {(data, response, error) in
-            print(data)
-            print(response)
-            print(error)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) 
+            print(json ?? "")
         }
         
         task.resume()
