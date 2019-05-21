@@ -30,6 +30,7 @@
 		2C65199522514BFF00D65F77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C65199422514BFF00D65F77 /* Assets.xcassets */; };
 		2C65199822514BFF00D65F77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C65199622514BFF00D65F77 /* LaunchScreen.storyboard */; };
 		2C6519A22251542000D65F77 /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6519A12251542000D65F77 /* LoginScreenController.swift */; };
+		2C74DD2922943AE600EBBD20 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74DD2822943AE600EBBD20 /* NetworkingService.swift */; };
 		2C9808F6227659F600DF6A4D /* GroupData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C9808F5227659F600DF6A4D /* GroupData.plist */; };
 		2CA052D8226F6A6000FC48C6 /* GroupModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CA052D6226F6A6000FC48C6 /* GroupModel.xcdatamodeld */; };
 		2CFED9E12262866F003F29E8 /* AvatarPhotoImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */; };
@@ -61,6 +62,7 @@
 		2C65199722514BFF00D65F77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C65199922514BFF00D65F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6519A12251542000D65F77 /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
+		2C74DD2822943AE600EBBD20 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingService.swift; path = ../NetworkingService.swift; sourceTree = "<group>"; };
 		2C9808F5227659F600DF6A4D /* GroupData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GroupData.plist; sourceTree = "<group>"; };
 		2CA052D7226F6A6000FC48C6 /* GroupModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroupModel.xcdatamodel; sourceTree = "<group>"; };
 		2CFED9E02262866F003F29E8 /* AvatarPhotoImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPhotoImageViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		2C65198C22514BFB00D65F77 /* VK_Lite_1 */ = {
 			isa = PBXGroup;
 			children = (
+				2C74DD2A22943B0B00EBBD20 /* New Group */,
 				2C65198D22514BFB00D65F77 /* AppDelegate.swift */,
 				2C06A78F228D80EC00816907 /* Settings */,
 				2C06A78C228D7C4900816907 /* Animation */,
@@ -197,6 +200,14 @@
 				2C65199922514BFF00D65F77 /* Info.plist */,
 			);
 			path = VK_Lite_1;
+			sourceTree = "<group>";
+		};
+		2C74DD2A22943B0B00EBBD20 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				2C74DD2822943AE600EBBD20 /* NetworkingService.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2C94F2F6225BBF6500A261B0 /* View */ = {
@@ -301,6 +312,7 @@
 				2C4C836A2262A3CD00734C4E /* ShadowView.swift in Sources */,
 				2CA052D8226F6A6000FC48C6 /* GroupModel.xcdatamodeld in Sources */,
 				2C47106D2267831E008CA428 /* LikeControl.swift in Sources */,
+				2C74DD2922943AE600EBBD20 /* NetworkingService.swift in Sources */,
 				2C5CDDB0225CEBBA00B29267 /* GroupCell.swift in Sources */,
 				2C6429F822597D7C00285078 /* PhotosOfFriendsCVController.swift in Sources */,
 				2C4B3CCE2288D33B00B35879 /* CustomNavigationController.swift in Sources */,
