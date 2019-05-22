@@ -73,4 +73,21 @@ class NetworkingService {
         print("end")
     }
     
+    func loadGroups(token: String) {
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/groups.get"
+        
+        let params: Parameters = [
+            "access_token": token,
+            "extended": 1,
+            "v": "5.95"
+        ]
+        
+        NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
+            guard let json = response.value else { return }
+            
+            print(json)
+        }
+    }
+    
 }

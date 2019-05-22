@@ -10,6 +10,8 @@
 		076E30F919E293FD1876CC67 /* Pods_VK_Lite_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B15A28A77B1F58A9DBCE9EE /* Pods_VK_Lite_1.framework */; };
 		2C019E17227F89D70032E0D6 /* FullPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */; };
 		2C019E1D22803F830032E0D6 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */; };
+		2C047A082294C62300553F46 /* VKLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C047A072294C62300553F46 /* VKLoginController.swift */; };
+		2C047A0A2294DA2F00553F46 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C047A092294DA2E00553F46 /* WebKit.framework */; };
 		2C06A78E228D80E300816907 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06A78D228D80E300816907 /* Account.swift */; };
 		2C40BBCD2271FCB400575298 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40BBCC2271FCB400575298 /* NewsCell.swift */; };
 		2C40BBCF2271FCDC00575298 /* NewsTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40BBCE2271FCDC00575298 /* NewsTVController.swift */; };
@@ -41,6 +43,8 @@
 		1FAD081AAFA42F7EDCE9ED56 /* Pods-VK_Lite_1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_Lite_1.release.xcconfig"; path = "Target Support Files/Pods-VK_Lite_1/Pods-VK_Lite_1.release.xcconfig"; sourceTree = "<group>"; };
 		2C019E16227F89D70032E0D6 /* FullPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoCell.swift; sourceTree = "<group>"; };
 		2C019E1C22803F830032E0D6 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
+		2C047A072294C62300553F46 /* VKLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginController.swift; sourceTree = "<group>"; };
+		2C047A092294DA2E00553F46 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2C06A78D228D80E300816907 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		2C40BBCC2271FCB400575298 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		2C40BBCE2271FCDC00575298 /* NewsTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C047A0A2294DA2F00553F46 /* WebKit.framework in Frameworks */,
 				076E30F919E293FD1876CC67 /* Pods_VK_Lite_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6519A12251542000D65F77 /* LoginScreenController.swift */,
+				2C047A072294C62300553F46 /* VKLoginController.swift */,
 				2C6429F92259F15C00285078 /* MainTabbarController.swift */,
 			);
 			path = Login;
@@ -247,13 +253,13 @@
 				3322EF9626458E01CF88DF5D /* Pods-VK_Lite_1.debug.xcconfig */,
 				1FAD081AAFA42F7EDCE9ED56 /* Pods-VK_Lite_1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		DA3F8F4EA6824EFED49EE123 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C047A092294DA2E00553F46 /* WebKit.framework */,
 				3B15A28A77B1F58A9DBCE9EE /* Pods_VK_Lite_1.framework */,
 			);
 			name = Frameworks;
@@ -397,6 +403,7 @@
 				2C40BBCD2271FCB400575298 /* NewsCell.swift in Sources */,
 				2C6429F422597D0E00285078 /* GroupsTVController.swift in Sources */,
 				2C019E1D22803F830032E0D6 /* FullPhotoViewController.swift in Sources */,
+				2C047A082294C62300553F46 /* VKLoginController.swift in Sources */,
 				2C5CDDAE225CDDCA00B29267 /* FriendCell.swift in Sources */,
 				2C5CDDB5225D2FA600B29267 /* PhotoCell.swift in Sources */,
 				2CFED9E12262866F003F29E8 /* AvatarPhotoImageViewController.swift in Sources */,
