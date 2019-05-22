@@ -22,6 +22,7 @@ class PhotosOfFriendsCVController: UICollectionViewController {
         super.viewDidLoad()
         
         title = friendName
+        NetworkingService().loadPhotos(token: Account.shared.token)
     }
     
     // MARK: - UICollectionViewDataSource
