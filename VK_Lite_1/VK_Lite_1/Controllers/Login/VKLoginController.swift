@@ -85,9 +85,9 @@ extension VKLoginController: WKNavigationDelegate {
         
         Account.shared.token = token
         Account.shared.userId = userId
-        //performSegue(withIdentifier: ShowMainScreen)
+        performSegue(withIdentifier: "ShowMainScreen", sender: self)
         
-        NetworkingService().loadGroups(token: token)
+        
         
         decisionHandler(.cancel)
     }
