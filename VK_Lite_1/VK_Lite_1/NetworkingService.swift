@@ -97,7 +97,8 @@ class NetworkingService {
         let params: Parameters = [
             "access_token": token,
             "extended": 1,
-            "v": "5.95"
+            "v": "5.95",
+            "fields": "nickname"
         ]
         
         NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
