@@ -11,6 +11,12 @@ import CoreData
 
 class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!{
+        didSet {
+            searchBar.delegate = self
+        }
+    }
+    
     public var groupName = ""
     
     var fetchResultController: NSFetchedResultsController<GroupMO>!
@@ -29,6 +35,8 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
         }
     }
     
+    // MARK: SearchBar
+    private var filteredGroups = [GroupMO]()
     
     
     override func viewDidLoad() {
@@ -53,6 +61,15 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
                 print(error)
             }
         }
+    }
+    
+    // MARK: SearchBar
+    private func filterGroups (with text: String) {
+        filteredGroups = groups.filter{ group in
+            return group.groupName!.lowercased().contains(text.lowercased())
+        }
+        
+        tableView.reloadData()
     }
 }
 
@@ -93,4 +110,26 @@ extension RecommendedGroupsController: UITableViewDataSource {
 extension RecommendedGroupsController: UITableViewDelegate {
     
 }
+
+//MARK: SearchBar
+extension RecommendedGroupsController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredGroups = groups
+            
+            
+            
+            tableView.reloadData()
+            return
+        }
+        filterGroups(with: searchText)
+        //MARK: - Request - search groups
+        let token = Account.shared.token
+        NetworkingService().loadSearchGroups(token: token, q: searchText)
+       
+    }
+    
+}
+
 

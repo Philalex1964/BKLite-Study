@@ -125,4 +125,20 @@ class NetworkingService {
         }
     }
     
+    //MARK:
+    func loadSearchGroups(token:String, q: String){
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/groups.search"
+        let params: Parameters = [
+            "access_token" : token,
+            "q" : q,
+            "v":"5.95"]
+        
+        NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
+            guard let json = response.value else { return }
+            
+            print(json)
+        }
+    }
+    
 }
