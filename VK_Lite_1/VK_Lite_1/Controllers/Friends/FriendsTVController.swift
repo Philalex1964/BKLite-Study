@@ -27,11 +27,14 @@ class FriendsTVController: UITableViewController {
     var searchFriends = [Friend]()
     var searching = false
     
+    private var userNetwork = UserNetwork()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchFriends = friends
         NetworkingService().loadFriends(token: Account.shared.token)
+        userNetwork.loadUsers(token: Account.shared.token)
     }
     
     override func viewWillAppear(_ animated: Bool) {
