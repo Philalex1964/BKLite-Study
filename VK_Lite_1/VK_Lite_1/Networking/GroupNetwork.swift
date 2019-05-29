@@ -32,4 +32,25 @@ class GroupNetwork {
             }
         }
     }
+    
+    //MARK: SearchGroups
+    func loadSearchGroups(token:String, q: String, completion: ((Swift.Result<[Group], Error>) -> Void)? = nil){
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/groups.search"
+        let params: Parameters = [
+            "access_token" : token,
+            "q" : q,
+            "v":"5.95"]
+        
+        Alamofire.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let groups = json["response"]["items"].arrayValue.map { Group($0) }
+                completion?(.success(groups))
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        }
+    }
 }

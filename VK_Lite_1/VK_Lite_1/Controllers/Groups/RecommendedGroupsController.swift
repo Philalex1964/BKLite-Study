@@ -63,17 +63,17 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
 //                print(error)
 //            }
 //        }
-        groupNetwork.loadGroups(token: Account.shared.token)
-        { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let groups):
-                self.groups = groups
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        //groupNetwork.loadSearchGroups(token: Account.shared.token, q: "q")
+//        { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let groups):
+//                self.groups = groups
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
     
     // MARK: SearchBar
@@ -141,7 +141,16 @@ extension RecommendedGroupsController: UISearchBarDelegate {
         filterGroups(with: searchText)
         //MARK: - Request - search groups
         let token = Account.shared.token
-        NetworkingService().loadSearchGroups(token: token, q: searchText)
+        GroupNetwork().loadSearchGroups(token: token, q: searchText){ [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                self.groups = groups
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
        
     }
     
