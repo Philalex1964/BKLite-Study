@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class UserNetwork {
-    func loadUsers(token: String) {
+    public func loadUsers(token: String, completion: ((Swift.Result<[User], Error>) -> Void)? = nil) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/friends.get"
         
@@ -27,9 +27,9 @@ class UserNetwork {
             case .success(let value):
                 let json = JSON(value)
                 let users = json["response"]["items"].arrayValue.map { User($0) }
-                print(users.count)
+                completion?(.success(users))
             case .failure(let error):
-                print(error.localizedDescription)
+                completion?(.failure(error))
             }
         }
     }
