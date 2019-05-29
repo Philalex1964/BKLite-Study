@@ -25,6 +25,9 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     public var groupNetwork = GroupNetwork()
     public var groups = [Group]()
     
+    var searchGroups = [Group]()
+    var searching = false
+    
     var context: NSManagedObjectContext!
     
     
@@ -120,6 +123,10 @@ extension RecommendedGroupsController: UITableViewDataSource {
 //            appDelegate.saveContext()
 //        }
     }
+    
+    @objc private func hideKeyboard() {
+        tableView.endEditing(true)
+    }
 }
 
 extension RecommendedGroupsController: UITableViewDelegate {
@@ -136,6 +143,7 @@ extension RecommendedGroupsController: UISearchBarDelegate {
             tableView.reloadData()
             return
         }
+        
         filterGroups(with: searchText)
         //MARK: - Request - search groups
         let token = Account.shared.token
@@ -152,6 +160,13 @@ extension RecommendedGroupsController: UISearchBarDelegate {
        
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        searchGroups = groups
+        hideKeyboard()
+        tableView.reloadData()
+    }
 }
 
 
