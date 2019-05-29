@@ -19,6 +19,8 @@ class GroupsTVController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetworkingService().loadGroups(token: Account.shared.token)
     }
 
     // MARK: - Table view data source
