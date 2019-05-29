@@ -447,7 +447,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Friends" id="NvA-SU-RJa">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" id="gs7-2J-08G"/>
-                        <barButtonItem key="rightBarButtonItem" title="Photo" id="gX5-1G-Zxk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Photo" id="gX5-1G-Zxk">
+                            <connections>
+                                <segue destination="FpE-P5-6uc" kind="show" id="oH4-oa-KGO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="dWr-57-QPA" id="cPq-LK-wda"/>
@@ -885,4 +889,7 @@
         <image name="user_group_man_woman" width="30" height="30"/>
         <image name="vk-blue" width="80" height="80"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="x8Y-tC-dm2"/>
+    </inferredMetricsTieBreakers>
 </document>
