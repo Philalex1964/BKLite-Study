@@ -132,9 +132,7 @@ extension RecommendedGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             filteredGroups = groups
-            
-            
-            
+        
             tableView.reloadData()
             return
         }
