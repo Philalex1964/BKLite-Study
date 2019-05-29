@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendCell: UITableViewCell {
     
@@ -17,6 +18,14 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var friendnameLabel: UILabel!
     
     @IBOutlet weak var shadowView: ShadowView!
+    
+    public func configure(with user: User) {
+        let friendName = String(user.firstName + " " +  user.lastName)
+        friendnameLabel.text = friendName
+        
+        let photoUrlString = user.photo
+        friendphotoImage.kf.setImage(with: URL(string: photoUrlString))
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

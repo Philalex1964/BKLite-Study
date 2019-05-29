@@ -98,7 +98,7 @@ class NetworkingService {
             "access_token": token,
             "extended": 1,
             "v": "5.95",
-            "fields": "nickname"
+            "fields": "photo_id, photo_50"
         ]
         
         NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
