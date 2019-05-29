@@ -11,16 +11,28 @@ import CoreData
 
 class GroupsTVController: UITableViewController {
     
-    var group: GroupMO!
+//    var group: GroupMO!
+//    
+//    public var groups: [GroupMO] = [
+//        
+//    ]
+    private var groupNetwork = GroupNetwork()
+    public var groups = [Group]()
     
-    public var groups: [GroupMO] = [
-        
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkingService().loadGroups(token: Account.shared.token)
+        groupNetwork.loadGroups(token: Account.shared.token) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                self.groups = groups
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -32,9 +44,11 @@ class GroupsTVController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else { fatalError("Cell cannot be dequeued")}
 
-        cell.groupnameLabel.text = groups[indexPath.row].groupName
-        cell.groupImage.image = UIImage(named: groups[indexPath.row].groupImageName!)
+//        cell.groupnameLabel.text = groups[indexPath.row].groupName
+//        cell.groupImage.image = UIImage(named: groups[indexPath.row].groupImageName!)
         
+        let group = groups[indexPath.row]
+        cell.configure(with: group)
         return cell
     }
  

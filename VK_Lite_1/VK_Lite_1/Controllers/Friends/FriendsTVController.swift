@@ -28,19 +28,31 @@ class FriendsTVController: UITableViewController {
     var searching = false
     
     private var userNetwork = UserNetwork()
+    private var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchFriends = friends
-        NetworkingService().loadFriends(token: Account.shared.token)
+        //NetworkingService().loadFriends(token: Account.shared.token)
         userNetwork.loadUsers(token: Account.shared.token)
+        { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         sortFriends()
+        
     }
     
     private func sortFriends() {
@@ -73,52 +85,54 @@ class FriendsTVController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-//        if searching {
-//            return 1
-//        } else {
-            return firstLetterSectionTitle.count
-//        }
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return firstLetterSectionTitle.count
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return searchFriends.count
-        } else {
-            let friendNameKey = firstLetterSectionTitle[section]
-            if let friendValues = friendDictionary[friendNameKey] {
-            return friendValues.count
-            }
-        }
-        return 0
+//        if searching {
+//            return searchFriends.count
+//        } else {
+//            let friendNameKey = firstLetterSectionTitle[section]
+//            if let friendValues = friendDictionary[friendNameKey] {
+//            return friendValues.count
+//            }
+//        }
+        return users.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendCell.reuseId, for: indexPath) as? FriendCell else { fatalError("Cell cannot be dequeued")}
-        if searching {
-            cell.friendnameLabel.text = searchFriends[indexPath.row].friendName
-            cell.friendphotoImage.image = UIImage(named: searchFriends[indexPath.row].friendImageName)
-            
-        } else {
-            let friendNameKey = firstLetterSectionTitle[indexPath.section]
-            if let friendValues = friendDictionary[friendNameKey] {
-                cell.friendnameLabel.text = friendValues[indexPath.row].friendName
-                cell.friendphotoImage.image = UIImage(named: friendValues[indexPath.row].friendImageName)
-            }
-        }
+//        if searching {
+//            cell.friendnameLabel.text = searchFriends[indexPath.row].friendName
+//            cell.friendphotoImage.image = UIImage(named: searchFriends[indexPath.row].friendImageName)
+//
+//        } else {
+//            let friendNameKey = firstLetterSectionTitle[indexPath.section]
+//            if let friendValues = friendDictionary[friendNameKey] {
+//                cell.friendnameLabel.text = friendValues[indexPath.row].friendName
+//                cell.friendphotoImage.image = UIImage(named: friendValues[indexPath.row].friendImageName)
+//            }
+//        }
+        
+        let user = users[indexPath.row]
+        cell.configure(with: user)
         return cell
     }
+    
+    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if searching {
-            return nil
-        }
-            return firstLetterSectionTitle[section]
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if searching {
+//            return nil
+//        }
+//            return firstLetterSectionTitle[section]
+//    }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if searching {
@@ -127,14 +141,6 @@ class FriendsTVController: UITableViewController {
             return firstLetterSectionTitle
         }
     }
-    
-    // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            friends.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
   
     // MARK: - Navigation
 
@@ -142,8 +148,6 @@ class FriendsTVController: UITableViewController {
         if segue.identifier == "Show Photo"{
             let photoVC = segue.destination as! PhotosOfFriendsCVController
             let indexPath = tableView.indexPathForSelectedRow
-            //var friendName = ""
-            //friendImage = friends[indexPath!.row].friendImage!
             if searching {
                 friendName = searchFriends[indexPath!.row].friendName
                 friendImage = UIImage(named: searchFriends[indexPath!.row].friendImageName)!
@@ -158,17 +162,7 @@ class FriendsTVController: UITableViewController {
             photoVC.friendName = friendName
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      if segue.identifier == "Show Photo",
-//        let photoVC = segue.destination as? PhotosOfFriendsCVController,
-//        let indexPath = tableView.indexPathForSelectedRow {
-//        let friendName = friends[indexPath.row].friendName
-//
-//        photoVC.friendName = friendName
-//        photoVC.friendImage = friends[indexPath.row].friendImage
-//        }
-//    }
+
     
     @objc private func keyboardWasHidden(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
@@ -179,9 +173,6 @@ class FriendsTVController: UITableViewController {
     @objc private func hideKeyboard() {
         tableView.endEditing(true)
     }
-    
-   
-    
 }
 
 extension FriendsTVController: UISearchBarDelegate {
@@ -193,9 +184,6 @@ extension FriendsTVController: UISearchBarDelegate {
             return
         }
         filterFriends(with: searchText)
-        //        searchFriends = friends.filter({$0.friendName.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        //        searching = true
-        //        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
