@@ -35,6 +35,8 @@
 		2C65199522514BFF00D65F77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C65199422514BFF00D65F77 /* Assets.xcassets */; };
 		2C65199822514BFF00D65F77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C65199622514BFF00D65F77 /* LaunchScreen.storyboard */; };
 		2C6519A22251542000D65F77 /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6519A12251542000D65F77 /* LoginScreenController.swift */; };
+		2C749DEA229E84D6004624E4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C749DE9229E84D5004624E4 /* Group.swift */; };
+		2C749DEC229E88A6004624E4 /* GroupNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C749DEB229E88A6004624E4 /* GroupNetwork.swift */; };
 		2C74DD2922943AE600EBBD20 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74DD2822943AE600EBBD20 /* NetworkingService.swift */; };
 		2C9808F6227659F600DF6A4D /* GroupData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C9808F5227659F600DF6A4D /* GroupData.plist */; };
 		2CA052D8226F6A6000FC48C6 /* GroupModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CA052D6226F6A6000FC48C6 /* GroupModel.xcdatamodeld */; };
@@ -72,6 +74,8 @@
 		2C65199722514BFF00D65F77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C65199922514BFF00D65F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6519A12251542000D65F77 /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
+		2C749DE9229E84D5004624E4 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		2C749DEB229E88A6004624E4 /* GroupNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNetwork.swift; sourceTree = "<group>"; };
 		2C74DD2822943AE600EBBD20 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		2C9808F5227659F600DF6A4D /* GroupData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GroupData.plist; sourceTree = "<group>"; };
 		2CA052D7226F6A6000FC48C6 /* GroupModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroupModel.xcdatamodel; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				2C74DD2822943AE600EBBD20 /* NetworkingService.swift */,
 				2C3530EB229B4EEE00CBB83B /* UserNetwork.swift */,
+				2C749DEB229E88A6004624E4 /* GroupNetwork.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			children = (
 				2C5CDDBA225D553600B29267 /* Friend.swift */,
 				2C3530E7229B373100CBB83B /* User.swift */,
+				2C749DE9229E84D5004624E4 /* Group.swift */,
 				2CA052D6226F6A6000FC48C6 /* GroupModel.xcdatamodeld */,
 				2C9808F5227659F600DF6A4D /* GroupData.plist */,
 			);
@@ -388,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C749DEC229E88A6004624E4 /* GroupNetwork.swift in Sources */,
 				2C4B3CCC2288CBA900B35879 /* Animator.swift in Sources */,
 				2C06A78E228D80E300816907 /* Account.swift in Sources */,
 				2C4C836A2262A3CD00734C4E /* ShadowView.swift in Sources */,
@@ -397,6 +404,7 @@
 				2C74DD2922943AE600EBBD20 /* NetworkingService.swift in Sources */,
 				2C5CDDB0225CEBBA00B29267 /* GroupCell.swift in Sources */,
 				2C6429F822597D7C00285078 /* PhotosOfFriendsCVController.swift in Sources */,
+				2C749DEA229E84D6004624E4 /* Group.swift in Sources */,
 				2C4B3CCE2288D33B00B35879 /* CustomNavigationController.swift in Sources */,
 				2C5CDDBB225D553600B29267 /* Friend.swift in Sources */,
 				2C5CDDB3225CF83D00B29267 /* RecommendedGroupsController.swift in Sources */,
