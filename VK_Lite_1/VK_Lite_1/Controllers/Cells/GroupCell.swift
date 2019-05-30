@@ -24,11 +24,8 @@ class GroupCell: UITableViewCell {
         groupImage.kf.setImage(with: URL(string: photoUrlString))
     }
 
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 }
