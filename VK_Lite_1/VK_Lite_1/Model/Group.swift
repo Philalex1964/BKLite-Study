@@ -8,15 +8,22 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class Group {
-    let groupName: String
-    let photo: String
+class Group: Object {
+    @objc dynamic var groupName: String = ""
+    @objc dynamic var photo: String = ""
     
-    init(_ json: JSON) {
+    convenience init(_ json: JSON) {
+        self.init()
+        
         self.groupName = json["name"].stringValue
         self.photo = json["photo_50"].stringValue
     }
+    
+//    override required init() {
+//        fatalError("init() has not been implemented")
+//    }
     
 }
 
