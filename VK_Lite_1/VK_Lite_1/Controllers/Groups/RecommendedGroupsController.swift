@@ -147,7 +147,7 @@ extension RecommendedGroupsController: UISearchBarDelegate {
 //        filterGroups(with: searchText)
 //        //MARK: - Request - search groups
         let token = Account.shared.token
-        GroupNetwork().loadSearchGroups(token: token, q: searchText){ [weak self] result in
+        GroupNetwork.shared.loadSearchGroups(token: token, q: searchText){ [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let groups):

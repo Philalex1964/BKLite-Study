@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 class GroupsTVController: UITableViewController {
     
@@ -17,22 +18,34 @@ class GroupsTVController: UITableViewController {
 //        
 //    ]
     private var groupNetwork = GroupNetwork()
-    public var groups = [Group]()
+//    let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+    public var groups: Results<Group> = try! Realm().objects(Group.self)
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        groupNetwork.loadGroups(token: Account.shared.token) { [weak self] result in
+        groupNetwork.loadGroups(token: Account.shared.token)
+        { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let groups):
-                self.groups = groups
+//                self.groups = groups
+                let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+                let realm = try! Realm(configuration: config)
+                try! realm.write {
+                    realm.add(groups, update: .modified)
+                }
+                print(realm.configuration.fileURL)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+        
+        
     }
 
     // MARK: - Table view data source
@@ -66,7 +79,7 @@ class GroupsTVController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            groups.remove(at: indexPath.row)
+//            groups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -99,15 +112,15 @@ class GroupsTVController: UITableViewController {
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         if let recommendedGroupsController = segue.source as? RecommendedGroupsController,
             let indexPath = recommendedGroupsController.tableView.indexPathForSelectedRow {
-                    let newGroup = recommendedGroupsController.groups[indexPath.row]
+            let newGroup = recommendedGroupsController.groups[indexPath.row]
             
-                    guard !groups.contains(where: { group -> Bool in
-                        return group.groupName == newGroup.groupName
-                    }) else { return }
-                    groups.append(newGroup)
-                    //tableView.reloadData()
-                    let newIndexPath = IndexPath(item: groups.count-1, section: 0)
-                    tableView.insertRows(at: [newIndexPath], with: .automatic)
+            guard !groups.contains(where: { group -> Bool in
+                return group.groupName == newGroup.groupName
+            }) else { return }
+//            groups.append(newGroup)
+            //tableView.reloadData()
+            let newIndexPath = IndexPath(item: groups.count-1, section: 0)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
 }

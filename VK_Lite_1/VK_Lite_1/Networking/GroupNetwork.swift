@@ -11,6 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class GroupNetwork {
+    
+    static let shared = GroupNetwork()
+    
     public func loadGroups(token: String, completion: ((Swift.Result<[Group], Error>) -> Void)? = nil) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/groups.get"

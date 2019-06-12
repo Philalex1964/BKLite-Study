@@ -13,12 +13,18 @@ import RealmSwift
 class Group: Object {
     @objc dynamic var groupName: String = ""
     @objc dynamic var photo: String = ""
+    @objc dynamic var id: Int = 0
     
     convenience init(_ json: JSON) {
         self.init()
         
         self.groupName = json["name"].stringValue
         self.photo = json["photo_50"].stringValue
+        self.id = json["id"].intValue
+    }
+    
+    override static func primaryKey() -> String {
+        return "id"
     }
     
 //    override required init() {

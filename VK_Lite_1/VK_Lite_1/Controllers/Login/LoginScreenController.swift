@@ -54,7 +54,7 @@ class LoginScreenController: UIViewController {
 
         if usernameInput.text == "",
             passwordInput.text == "" {
-           //performSegue(withIdentifier: "Show Main Screen", sender: sender)
+           performSegue(withIdentifier: "Show Main Screen", sender: sender)
         } else {
             showLoginError()
         }
