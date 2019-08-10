@@ -13,7 +13,6 @@ class LikeControl: UIControl {
     public var isLiked: Bool = false
     let heartImageView = UIImageView()
     let likeNumberLabel = UILabel()
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)

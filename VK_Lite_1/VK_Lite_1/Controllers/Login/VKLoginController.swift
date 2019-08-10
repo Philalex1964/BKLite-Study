@@ -38,24 +38,12 @@ class VKLoginController: UIViewController {
     }
     
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let identifier = "ShowMainScreen"
-
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
      }
     
 }
-
-    
-    
-
-
-
-
 
 extension VKLoginController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
@@ -74,8 +62,6 @@ extension VKLoginController: WKNavigationDelegate {
                 return dict
         }
         
-        print(params)
-        
         guard let token = params["access_token"],
             let userIdString = params["user_id"],
             let userId = Int(userIdString) else {
@@ -86,8 +72,6 @@ extension VKLoginController: WKNavigationDelegate {
         Account.shared.token = token
         Account.shared.userId = userId
         performSegue(withIdentifier: "ShowMainScreen", sender: self)
-        
-        
         
         decisionHandler(.cancel)
     }

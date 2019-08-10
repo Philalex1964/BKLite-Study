@@ -62,7 +62,6 @@ class NetworkingService {
             "appId": "8b32f5f2dc7dbd5254ac73d984baf306"
         ]
         
-//        let session = SessionManager()
         NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON {
             response in
             guard let json = response.value else { return }

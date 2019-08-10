@@ -11,19 +11,9 @@ import CoreData
 import RealmSwift
 
 class GroupsTVController: UITableViewController {
-    
-//    var group: GroupMO!
-//    
-//    public var groups: [GroupMO] = [
-//        
-//    ]
+
     private var groupNetwork = GroupNetwork()
-//    let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
     public var groups: Results<Group> = try! Realm().objects(Group.self)
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +22,6 @@ class GroupsTVController: UITableViewController {
             guard let self = self else { return }
             switch result {
             case .success(let groups):
-//                self.groups = groups
                 let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
                 let realm = try! Realm(configuration: config)
                 try! realm.write {
@@ -44,12 +33,9 @@ class GroupsTVController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
-        
-        
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups.count
     }
@@ -57,56 +43,20 @@ class GroupsTVController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else { fatalError("Cell cannot be dequeued")}
 
-//        cell.groupnameLabel.text = groups[indexPath.row].groupName
-//        cell.groupImage.image = UIImage(named: groups[indexPath.row].groupImageName!)
-        
         let group = groups[indexPath.row]
         cell.configure(with: group)
         return cell
     }
- 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
 //            groups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-  
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
- 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
@@ -117,8 +67,6 @@ class GroupsTVController: UITableViewController {
             guard !groups.contains(where: { group -> Bool in
                 return group.groupName == newGroup.groupName
             }) else { return }
-//            groups.append(newGroup)
-            //tableView.reloadData()
             let newIndexPath = IndexPath(item: groups.count-1, section: 0)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }

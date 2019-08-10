@@ -12,13 +12,7 @@ class FriendsTVController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private var friends: [Friend] = [
-//        Friend(friendName: "Alexey", friendGender: .male, groupMemberNumber: 1, friendImageName: "Alexey", friendImage: UIImage(named: "Alexey")),
-//        Friend(friendName: "Anton", friendGender: .male, groupMemberNumber: 2, friendImageName: "Anton", friendImage: UIImage(named: "Anton")),
-//        Friend(friendName: "Dmitry", friendGender: .male, groupMemberNumber: 3, friendImageName: "Dmitry", friendImage: UIImage(named: "Dmitry")),
-//        Friend(friendName: "Igor", friendGender: .male, groupMemberNumber: 4, friendImageName: "Igor", friendImage: UIImage(named: "Igor")),
-//        Friend(friendName: "Uliana", friendGender: .female, groupMemberNumber: 5, friendImageName: "Uliana", friendImage: UIImage(named: "Uliana"))
-    ]
+    private var friends: [Friend] = []
     var friendName = ""
     var friendImage = UIImage()
     var firstLetterSectionTitle = [String]()
@@ -34,7 +28,7 @@ class FriendsTVController: UITableViewController {
         super.viewDidLoad()
         
         searchFriends = friends
-        //NetworkingService().loadFriends(token: Account.shared.token)
+        NetworkingService().loadFriends(token: Account.shared.token)
         userNetwork.loadUsers(token: Account.shared.token)
         { [weak self] result in
             guard let self = self else { return }
@@ -76,19 +70,13 @@ class FriendsTVController: UITableViewController {
     
     // MARK: function for searchBar
     private func filterFriends (with text: String) {
-        searchFriends = friends.filter{ friend in
+        searchFriends = friends.filter { friend in
             return friend.friendName.lowercased().contains(text.lowercased())
         }
         sortFriends()
         tableView.reloadData()
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//
-//        return firstLetterSectionTitle.count
-//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        if searching {

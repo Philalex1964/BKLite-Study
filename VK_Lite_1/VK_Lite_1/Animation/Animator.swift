@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 class Animator: NSObject,UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
     var presenting = true
     private let animationDuration: TimeInterval = 1
@@ -20,7 +21,6 @@ class Animator: NSObject,UIViewControllerAnimatedTransitioning, UIViewController
         guard let sourse = transitionContext.viewController(forKey: .from) else {return}
         guard let destination = transitionContext.viewController(forKey: .to) else {return}
         
-    
         // MARK: Rotate
         let pi = CGFloat(Double.pi)
         
@@ -34,8 +34,6 @@ class Animator: NSObject,UIViewControllerAnimatedTransitioning, UIViewController
         
         destination.view.layer.position = CGPoint(x: 0, y: 0)
         sourse.view.layer.position = CGPoint(x: 0, y: 0)
-        
-        
         
         container.addSubview(sourse.view)
         container.addSubview(destination.view)
@@ -55,7 +53,6 @@ class Animator: NSObject,UIViewControllerAnimatedTransitioning, UIViewController
                        completion: { finished in
                         transitionContext.completeTransition(finished)
         })
-        
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -90,11 +87,8 @@ class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning{
         destination.view.layer.anchorPoint = CGPoint(x: 0, y: 0)
         source.view.layer.anchorPoint = CGPoint(x: 0, y: 0)
         
-        
         destination.view.layer.position = CGPoint(x: 0, y: 0)
         source.view.layer.position = CGPoint(x: 0, y: 0)
-        
-        
         
         container.addSubview(source.view)
         container.addSubview(destination.view)
@@ -111,10 +105,7 @@ class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning{
                        completion: { finished in
                         transitionContext.completeTransition(finished)
         })
-        
     }
-    
-    
 }
 class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning{
     private let animationDuration: TimeInterval = 1
@@ -137,7 +128,6 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning{
         destination.view.layer.position = CGPoint(x: 0, y: 0)
         source.view.layer.position = CGPoint(x: 0, y: 0)
         
-        
         container.addSubview(destination.view)
         container.addSubview(source.view)
         
@@ -158,8 +148,5 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning{
                         }
                         transitionContext.completeTransition(finished && !transitionContext.transitionWasCancelled)
         })
-        
     }
-    
-    
 }

@@ -20,29 +20,24 @@ class RecommendedGroupsController: UIViewController, NSFetchedResultsControllerD
     public var groupName = ""
     
     //var fetchResultController: NSFetchedResultsController<GroupMO>!
-    
     //public var groups: [Group] = []
     public var groupNetwork = GroupNetwork()
     public var groups = [Group]()
     
     var searchGroups = [Group]()
     var searching = false
-    
     var context: NSManagedObjectContext!
-    
     
     @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
-            
             title = groupName
         }
     }
     
     // MARK: SearchBar
     private var filteredGroups = [Group]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,7 +152,6 @@ extension RecommendedGroupsController: UISearchBarDelegate {
                 print(error.localizedDescription)
             }
         }
-       
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

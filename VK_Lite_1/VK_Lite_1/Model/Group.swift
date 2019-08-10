@@ -26,28 +26,5 @@ class Group: Object {
     override static func primaryKey() -> String {
         return "id"
     }
-    
-//    override required init() {
-//        fatalError("init() has not been implemented")
-//    }
-    
 }
 
-
-//{
-//    "response": {
-//        "count": 11,
-//        "items": [
-//        {
-//        "id": 28241045,
-//        "name": "Юбилейный Квартал и Шуваловский",
-//        "screen_name": "jubilejnyj_kvartal",
-//        "is_closed": 0,
-//        "type": "group",
-//        "is_admin": 0,
-//        "is_member": 1,
-//        "is_advertiser": 0,
-//        "photo_50": "https://sun9-31.userapi.com/c638726/v638726290/cd54/oPidvVSIpf0.jpg?ava=1",
-//        "photo_100": "https://sun9-18.userapi.com/c638726/v638726290/cd53/DYEB6D0oha4.jpg?ava=1",
-//        "photo_200": "https://sun9-4.userapi.com/c638726/v638726290/cd52/YQq5F6ucne0.jpg?ava=1"
-//        },

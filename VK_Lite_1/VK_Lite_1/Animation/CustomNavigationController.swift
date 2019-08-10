@@ -39,11 +39,12 @@ class CustomNavigationController: UINavigationController, UINavigationController
         default:
             return nil
         }
-        
     }
+    
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactiveTransition.hasStarted ? interactiveTransition : nil
     }
+    
     @objc func handleScreenGesture (_ recognizer: UIScreenEdgePanGestureRecognizer){
         switch recognizer.state {
         case.began: interactiveTransition.hasStarted = true

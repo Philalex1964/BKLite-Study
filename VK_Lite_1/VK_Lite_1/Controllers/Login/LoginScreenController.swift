@@ -100,8 +100,7 @@ class LoginScreenController: UIViewController {
             self.passwordInput.text = ""
         }
         
-        loginAlert.addAction(action)
-        
+        loginAlert.addAction(action)        
         present(loginAlert, animated: true)
     }    
 }

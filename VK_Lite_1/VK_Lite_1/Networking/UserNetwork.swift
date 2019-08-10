@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class UserNetwork {
+    
     public func loadUsers(token: String, completion: ((Swift.Result<[User], Error>) -> Void)? = nil) {
         let baseUrl = "https://api.vk.com"
         let path = "/method/friends.get"
